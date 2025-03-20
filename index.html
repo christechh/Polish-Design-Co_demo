@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>網站前端工程師 Front-End Engineer - 使用 GSAP</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background: url("static/images/g-pic.png") no-repeat center center fixed;
+        background-size: cover;
+        background-color: black;
+        color: #fff;
+      }
+      .cases-quote {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+      }
+      .cases-quote-text {
+        display: inline-block;
+      }
+      .fx-letter {
+        display: inline-block;
+        opacity: 0;
+        transform: translateX(30px) translateY(30px) scaleX(0.9) rotate(-10deg);
+        transform-origin: center bottom;
+        margin-right: 2px;
+      }
+      .fx-letter.space {
+        display: inline-block;
+        opacity: 1;
+        transform: none;
+        margin-right: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cases-quote js-in-view">
+      <div class="center">
+        <p class="cases-quote-text fx-parent"></p>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/gsap.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const text = "”Team Taiwan! Team Taiwan! Taiwan is a great country!“";
+        const textContainer = document.querySelector(".cases-quote-text");
+
+        let html = "";
+        for (let char of text) {
+          if (char === " ") {
+            html += `<span class="fx-letter space">${char}</span>`;
+          } else {
+            html += `<span class="fx-letter">${char}</span>`;
+          }
+        }
+
+        textContainer.innerHTML = html;
+
+        const letters = document.querySelectorAll(".fx-letter:not(.space)");
+
+        gsap.timeline().to(letters, {
+          opacity: 1,
+          x: 0,
+          y: 0,
+          scale: 1,
+          rotation: 0,
+          transformOrigin: "center bottom",
+          stagger: {
+            each: 0.02,
+            from: "start",
+          },
+          duration: 0.5,
+          ease: "power1.out",
+        });
+      });
+    </script>
+  </body>
+</html>
