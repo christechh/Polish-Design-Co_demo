@@ -1,5 +1,7 @@
 # 網站前端工程師 Front-End Engineer - 使用 GSAP
 
+![CleanShot 2025-03-21 at 01 14 36](https://github.com/user-attachments/assets/6e57d09f-f4a5-45dc-80a5-366eae601948)
+
 您好！
 
 從出社會到現在經歷的面試寫過很多考題，但第一次寫關於這題相關的題目，覺得非常有趣，也感受到貴公司對於網頁動畫的熱情！
